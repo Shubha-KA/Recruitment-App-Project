@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     networks:
-      - backend-net
+      - frontend-net
     expose:
       - "3000"
 
