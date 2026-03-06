@@ -2,6 +2,18 @@ version: "3.9"
 
 services:
 
+  gateway:
+    image: nginx:latest
+    container_name: gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+    networks:
+      - frontend-net
+
   app:
     build: .
     container_name: recruitment-app
@@ -9,10 +21,11 @@ services:
       - mongodb
     env_file:
       - .env
-    networks:
-      - frontend-net
     expose:
       - "3000"
+    networks:
+      - frontend-net
+      - backend-net
 
   mongodb:
     image: mongo:7
@@ -23,17 +36,6 @@ services:
     volumes:
       - mongo-data:/data/db
     networks:
-      - backend-net
-
-  gateway:
-    image: nginx:latest
-    container_name: gateway
-    ports:
-      - "80:80"
-    volumes:
-      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
-    networks:
-      - frontend-net
       - backend-net
 
 networks:
