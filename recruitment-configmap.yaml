@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recruitment-config
+data:
+  MONGO_URI: "mongodb://recruitmentuser:recruit123@mongodb-service:27017/recruitment_system?authSource=recruitment_system"
+  DB_NAME: "recruitment_system"
