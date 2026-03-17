@@ -29,11 +29,9 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "150m"
-          env:
-          - name: MONGO_URI
-            value: "mongodb://recruitmentuser:recruit123@mongodb-service:27017/recruitment_system?authSource=recruitment_system"
-          - name: DB_NAME
-            value: "hr_system"
+          envFrom:
+            - configMapRef:
+              name: recruitment-config
 
 ---
 apiVersion: v1
