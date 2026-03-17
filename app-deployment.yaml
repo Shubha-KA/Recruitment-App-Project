@@ -3,12 +3,7 @@ kind: Deployment
 metadata:
   name: recruitment-app-deployment
 spec:
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+  replicas: 1
   selector:
     matchLabels:
       app: recruitment
@@ -22,13 +17,6 @@ spec:
           image: shubha20/recruitment-app-project_app:latest
           ports:
             - containerPort: 3000
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "150m"
           envFrom:
             - configMapRef:
               name: recruitment-config
