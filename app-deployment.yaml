@@ -18,8 +18,8 @@ spec:
           ports:
             - containerPort: 3000
           envFrom:
-          - configMapRef:
-            name: recruitment-config
+            - configMapRef:
+                name: recruitment-config
 
 ---
 apiVersion: v1
