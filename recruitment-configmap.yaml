@@ -5,3 +5,5 @@ metadata:
 data:
   MONGO_URI: "mongodb://recruitmentuser:recruit123@mongodb-service:27017/recruitment_system"
   DB_NAME: "recruitment_system"
+  MONGO_USERNAME: "recruitmentuser"
+  MONGO_PASSWORD: "recruit123"
