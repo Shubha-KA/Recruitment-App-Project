@@ -38,16 +38,16 @@ spec:
         ports:
         - containerPort: 27017
         env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            valueFrom:
-              configMapKeyRef:
-                name: recruitment-config
-                key: MONGO_USERNAME
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: recruitment-config
-                key: MONGO_PASSWORD
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: recruitment-config
+              key: MONGO_USERNAME
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: recruitment-config
+              key: MONGO_PASSWORD
         volumeMounts:
         - name: mongo-init-script
           mountPath: /docker-entrypoint-initdb.d
